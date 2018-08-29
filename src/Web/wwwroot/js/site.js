@@ -1,34 +1,40 @@
-﻿$(function () {
-    makeSearchIconGlowWhenSearchBarIsFocused();
-    removeSearchIconGlowWhenSearchBarIsNoLongerFocused();
-});
+﻿class LayoutView {
+    ready() {
+        this._bindEvents();
+    }
 
-let makeSearchIconGlowWhenSearchBarIsFocused = () => {
-    $("#main-search-input").focus(makeSearchIconGlow);
-};
+    _bindEvents() {
+        this._makeSearchIconGlowWhenSearchBarIsFocused();
+        this._removeSearchIconGlowWhenSearchBarIsNoLongerFocused();
+    }
 
-let removeSearchIconGlowWhenSearchBarIsNoLongerFocused = () => {
-    $("#main-search-input").focusout(removeGlowFromSearchIcon);
-};
+    _makeSearchIconGlowWhenSearchBarIsFocused() {
+        $("#main-search-input").focus(() => this._makeSearchIconGlow());
+    }
 
-let makeSearchIconGlow = () => {
-    $("#main-search-icon").css("border-color", "#80bdff");
+    _makeSearchIconGlow() {
+        $("#main-search-icon").css("border-color", "#80bdff");
 
-    let boxShadow = "0 0 0.2rem 0.2rem rgba(0, 123, 255, 0.5)";
-    $("#main-search-icon").css("-mozbox-shadow", boxShadow);
-    $("#main-search-icon").css("-webkit-box-shadow", boxShadow);
-    $("#main-search-icon").css("box-shadow", boxShadow);
+        let boxShadow = "0 0 0.2rem 0.2rem rgba(0, 123, 255, 0.5)";
+        $("#main-search-icon").css("-mozbox-shadow", boxShadow);
+        $("#main-search-icon").css("-webkit-box-shadow", boxShadow);
+        $("#main-search-icon").css("box-shadow", boxShadow);
 
-    $("#main-search-icon").css("clip-path", "inset(-5px -5px -5px 0px)");
-};
+        $("#main-search-icon").css("clip-path", "inset(-5px -5px -5px 0px)");
+    }
 
-let removeGlowFromSearchIcon = () => {
-    $("#main-search-icon").css("border-color", "#ced4da");
+    _removeSearchIconGlowWhenSearchBarIsNoLongerFocused() {
+        $("#main-search-input").focusout(() => this._removeGlowFromSearchIcon());
+    }
 
-    let none = "none";
-    $("#main-search-icon").css("-mozbox-shadow", none);
-    $("#main-search-icon").css("-webkit-box-shadow", none);
-    $("#main-search-icon").css("box-shadow", none);
+    _removeGlowFromSearchIcon() {
+        $("#main-search-icon").css("border-color", "#ced4da");
 
-    $("#main-search-icon").css("clip-path", none);
-};
+        let none = "none";
+        $("#main-search-icon").css("-mozbox-shadow", none);
+        $("#main-search-icon").css("-webkit-box-shadow", none);
+        $("#main-search-icon").css("box-shadow", none);
+
+        $("#main-search-icon").css("clip-path", none);
+    }
+}

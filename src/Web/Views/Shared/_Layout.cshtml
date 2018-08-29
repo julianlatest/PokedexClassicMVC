@@ -101,6 +101,11 @@
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 
+    <script type="text/javascript">
+        let layoutView = new LayoutView();
+        $(() => layoutView.ready());
+    </script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>
