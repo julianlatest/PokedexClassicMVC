@@ -6,3 +6,5 @@ obj/
 
 *.min.css
 *.min.js
+
+site.js
