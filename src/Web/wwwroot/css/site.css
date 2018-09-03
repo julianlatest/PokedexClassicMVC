@@ -10,3 +10,8 @@
 #main-search-icon {
     background-color: #fff;
 }
+
+.pokemon-card {
+    width: 215px;
+    margin: 0 auto;
+}
