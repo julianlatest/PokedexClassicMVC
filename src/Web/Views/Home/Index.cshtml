@@ -1,32 +1,16 @@
-﻿<div class="row">
-    <div class="col">
-        <div class="card pokemon-card">
-            <img class="card-img-top" src="~/cdn/img/pokemon/thumbnails/001.png" alt="bulbasaur" />
-            <div class="card-body">
-                <h5 class="card-title">Bulbasaur</h5>
-                <p class="card-text">#001</p>
+﻿@model IEnumerable<PokemonViewModel>
+
+<div class="row">
+    @foreach (var pokemon in Model)
+    {
+        <div class="col col-md-4 col-lg-3">
+            <div class="card pokemon-card">
+                <img class="card-img-top" src="@pokemon.ThumbnailUri" alt="@pokemon.Name" />
+                <div class="card-body">
+                    <h5 class="card-title">@pokemon.Name</h5>
+                    <p class="card-text">@string.Format("#{0:000}", pokemon.Number)</p>
+                </div>
             </div>
         </div>
-        <div class="card pokemon-card">
-            <img class="card-img-top" src="~/cdn/img/pokemon/thumbnails/004.png" alt="charmander" />
-            <div class="card-body">
-                <h5 class="card-title">Charmander</h5>
-                <p class="card-text">#025</p>
-            </div>
-        </div>
-        <div class="card pokemon-card">
-            <img class="card-img-top" src="~/cdn/img/pokemon/thumbnails/007.png" alt="squirtle" />
-            <div class="card-body">
-                <h5 class="card-title">Squirtle</h5>
-                <p class="card-text">#007</p>
-            </div>
-        </div>
-        <div class="card pokemon-card">
-            <img class="card-img-top" src="~/cdn/img/pokemon/thumbnails/025.png" alt="pikachu" />
-            <div class="card-body">
-                <h5 class="card-title">Pikachu</h5>
-                <p class="card-text">#025</p>
-            </div>
-        </div>
-    </div>
+    }
 </div>
